@@ -1,10 +1,11 @@
 spring:
   profiles:
-    active: @spring.profiles.active@
-
+    active: spring.profiles.active
+server:
+  port: 5000
 app:
   datasource:
     jdbc-url: jdbc:postgresql://localhost:5432/amigoscodedemo
     username: postgres
-    password: password
+    password: root
     pool-size: 30

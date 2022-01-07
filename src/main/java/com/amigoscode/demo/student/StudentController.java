@@ -11,38 +11,36 @@ import java.util.UUID;
 @RequestMapping("api/students")
 public class StudentController {
 
-    private final StudentService studentService;
+	private final StudentService studentService;
 
-    @Autowired
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
-    }
+	@Autowired
+	public StudentController(StudentService studentService) {
+		this.studentService = studentService;
+	}
 
-    @GetMapping
-    public List<Student> getAllStudents() {
-        return studentService.getAllStudents();
-    }
+	@GetMapping
+	public List<Student> getAllStudents() {
+		return studentService.getAllStudents();
+	}
 
-    @GetMapping(path = "{studentId}/courses")
-    public List<StudentCourse> getAllCoursesForStudent(
-            @PathVariable("studentId") UUID studentId) {
-        return studentService.getAllCoursesForStudent(studentId);
-    }
+	@GetMapping(path = "{studentId}/courses")
+	public List<StudentCourse> getAllCoursesForStudent(@PathVariable("studentId") UUID studentId) {
+		return studentService.getAllCoursesForStudent(studentId);
+	}
 
-    @PostMapping
-    public void addNewStudent(@RequestBody @Valid Student student) {
-        studentService.addNewStudent(student);
-    }
+	@PostMapping
+	public void addNewStudent(@RequestBody @Valid Student student) {
+		studentService.addNewStudent(student);
+	}
 
-    @PutMapping(path = "{studentId}")
-    public void updateStudent(@PathVariable("studentId") UUID studentId,
-                              @RequestBody Student student) {
-        studentService.updateStudent(studentId, student);
-    }
+	@PutMapping(path = "{studentId}")
+	public void updateStudent(@PathVariable("studentId") UUID studentId, @RequestBody Student student) {
+		studentService.updateStudent(studentId, student);
+	}
 
-    @DeleteMapping("{studentId}")
-    public void deleteStudent(@PathVariable("studentId") UUID studentId) {
-        studentService.deleteStudent(studentId);
-    }
+	@DeleteMapping("{studentId}")
+	public void deleteStudent(@PathVariable("studentId") UUID studentId) {
+		studentService.deleteStudent(studentId);
+	}
 
 }

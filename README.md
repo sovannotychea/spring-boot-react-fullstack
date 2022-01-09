@@ -19,4 +19,4 @@ CD src/js
 
 docker build -t noty/node
 
-docker run -d -p 3000:3000 --name node-server 
+docker run -d -p 3000:3000 --name node-server noty/node
